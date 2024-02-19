@@ -6,7 +6,7 @@
 /*   By: erigolon <erigolon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 15:47:00 by erigolon          #+#    #+#             */
-/*   Updated: 2024/02/16 15:57:42 by erigolon         ###   ########.fr       */
+/*   Updated: 2024/02/19 16:20:21 by erigolon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,15 @@
 # include "../libs/MLX42/include/MLX42/MLX42.h"
 
 # include <unistd.h>
+#include <stdio.h>
+
+
+
+typedef struct s_game
+{
+	mlx_t	*mlx;
+
+}			t_game;
+
 
 #endif
