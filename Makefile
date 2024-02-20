@@ -6,7 +6,7 @@
 #    By: erigolon <erigolon@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/16 14:57:37 by erigolon          #+#    #+#              #
-#    Updated: 2024/02/16 17:28:33 by erigolon         ###   ########.fr        #
+#    Updated: 2024/02/20 10:20:57 by erigolon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,8 @@ LIBGL	= -lglfw -L"/Users/$(USER)/.brew/opt/glfw/lib"
 LIBS	= ${LIBGL} ${LIBMLX}/libmlx42.a ${LIBFT}/libft.a ${LIBGN}/get_next_line.a
 
 
-SRCS	= ./src/main.c
+SRCS	= ./src/main.c \
+			./src/cub3d_utils.c
 
 OBJS	= ${SRCS:.c=.o}
 

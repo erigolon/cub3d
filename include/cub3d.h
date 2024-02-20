@@ -6,7 +6,7 @@
 /*   By: erigolon <erigolon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 15:47:00 by erigolon          #+#    #+#             */
-/*   Updated: 2024/02/19 16:20:21 by erigolon         ###   ########.fr       */
+/*   Updated: 2024/02/20 10:19:31 by erigolon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,7 @@
 # include "../libs/MLX42/include/MLX42/MLX42.h"
 
 # include <unistd.h>
-#include <stdio.h>
-
+# include <stdio.h>
 
 
 typedef struct s_game
@@ -28,5 +27,9 @@ typedef struct s_game
 
 }			t_game;
 
+
+/*		Utils		*/
+
+int	ft_perror(const char *str);
 
 #endif

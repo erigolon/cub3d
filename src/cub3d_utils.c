@@ -1,34 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   cub3d_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: erigolon <erigolon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/16 15:46:11 by erigolon          #+#    #+#             */
-/*   Updated: 2024/02/20 10:19:46 by erigolon         ###   ########.fr       */
+/*   Created: 2024/02/20 10:17:55 by erigolon          #+#    #+#             */
+/*   Updated: 2024/02/20 10:18:41 by erigolon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
 
-int	init_game(t_game *game)
+int	ft_perror(const char *str)
 {
-	game->mlx = mlx_init(960, 600, "lobito malo 3D", false);
-	if (!(game->mlx))
-		return (1);
-	mlx_loop(game->mlx);
-	mlx_terminate(game->mlx);
-	return (0);
-}
-
-int	main(int argc, char **argv)
-{
-	t_game	game;
-
-	(void)argv;
-	if (argc != 2)
-		return (ft_perror("Incorrect number of arguments"));
-	init_game(&game);
-	return (0);
+	printf("%s\n", str);
+	exit(1);
 }
