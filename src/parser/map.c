@@ -1,40 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.h                                            :+:      :+:    :+:   */
+/*   map.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: erigolon <erigolon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/16 15:47:00 by erigolon          #+#    #+#             */
-/*   Updated: 2024/02/20 10:36:03 by erigolon         ###   ########.fr       */
+/*   Created: 2024/02/20 10:34:07 by erigolon          #+#    #+#             */
+/*   Updated: 2024/02/20 10:36:33 by erigolon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_H
-# define CUB3D_H
+#include "../../include/cub3d.h"
 
-# include "../libs/libft/libft.h"
-# include "../libs/get_next_line/get_next_line.h"
-# include "../libs/MLX42/include/MLX42/MLX42.h"
-
-# include <unistd.h>
-# include <stdio.h>
-
-
-typedef struct s_game
+int	check_extension(const char *fn)
 {
-	mlx_t	*mlx;
+	int	i;
 
-}			t_game;
-
-
-/*		Utils		*/
-
-int	ft_perror(const char *str);
-
-
-/*		Parser		*/
-
-int	check_extension(const char *fn);
-
-#endif
+	i = ft_strlen(fn) - 1;
+	if (fn[i] != 'b' || fn[i - 1] != 'u'
+		|| fn[i - 2] != 'c'
+		|| fn[i - 3] != '.')
+		return (1);
+	return (0);
+}

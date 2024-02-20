@@ -6,7 +6,7 @@
 /*   By: erigolon <erigolon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 15:46:11 by erigolon          #+#    #+#             */
-/*   Updated: 2024/02/20 10:19:46 by erigolon         ###   ########.fr       */
+/*   Updated: 2024/02/20 10:40:02 by erigolon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,10 @@ int	main(int argc, char **argv)
 {
 	t_game	game;
 
-	(void)argv;
 	if (argc != 2)
-		return (ft_perror("Incorrect number of arguments"));
+		ft_perror("Incorrect number of arguments");
+	if (check_extension(argv[1]))
+		ft_perror("Invalid file extension");
 	init_game(&game);
 	return (0);
 }
