@@ -1,0 +1,12 @@
+*.swp
+*.swo
+.DS_Store
+.DS*
+.vscode
+*.o
+*.a
+cub3D
+a.out
+*.txt
+*.dSYM
+*.md
