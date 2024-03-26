@@ -1,9 +1,24 @@
+C 225,30,0
+
+SO ./path_to_the_south_texture
+NO ./path_to_the_south_texture
+
+
+EA ./path_to_the_south_texture
+WE ./path_to_the_south_texture
+F 225,30,0
+
 11111111111111xxxxxxxxxxx
-10000000P00001xxxxxxxxxxx
-10001000000001xxxxxxxxxxx
-1000000001001xxxxxx111xxx
-100010000100011111xxxx1P1 1111
-100000000100010000xxxx111 1001
-11111111111111x111xxxxxxx 1101
+
+
+
+
+10000000P00001xxxxxxxxxxx xxxx
+10001000000001xxx         xx
+1000000001001xxxxxx11    1xxx
+100010000100011111    1P11111
+100000000100010000xxxx1111001
+11111111111111x111xxxxxxx1101
 xxxxxxxxxxxxxxxxxxxxxxxxx
+
 xxx1111xxxxxxxxxxxxxxxxxx
