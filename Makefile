@@ -17,7 +17,9 @@ LIBS	= ${LIBGL} ${LIBMLX}/libmlx42.a ${LIBFT}/libft.a ${LIBGN}/get_next_line.a
 
 SRCS	= ./src/main.c \
 			./src/cub3d_utils.c \
-			./src/parser/map.c
+			./src/parser/check_file.c \
+			./src/images.c \
+			./src/move.c
 
 OBJS	= ${SRCS:.c=.o}
 
