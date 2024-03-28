@@ -18,7 +18,8 @@ SRCS	= ./src/main.c \
 			./src/cub3d_utils.c \
 			./src/parser/map.c \
 			./src/parser/get_map.c \
-			./src/parser/map_utils.c
+			./src/parser/map_utils.c \
+			./src/parser/data_utils.c \
 
 OBJS	= ${SRCS:.c=.o}
 

@@ -58,3 +58,41 @@ int	ft_get_map_width_dd(char **map)
 	}
 	return (length);
 }
+
+int	ft_get_start_map(t_game *game, int last_line_saw)
+{
+	int		i;
+	int		j;
+
+	i = last_line_saw;
+	while (game->data[i])
+	{
+		while (game->data[i][j] == ' ' || game->data[i][j] == '\t')
+			j++;
+		if (game->data[i][j] == '1' || game->data[i][j] == '0'
+			|| game->data[i][j] == 'N' || game->data[i][j] == 'S'
+			|| game->data[i][j] == 'W' || game->data[i][j] == 'E')
+			return (i);
+		i++;
+	}
+}
+
+void	ft_get_map(t_game *game, int tam_map, int start_map)
+{
+	int	i;
+	int	j;
+
+	j = 0;
+	i = start_map;
+	game->map = (char **)malloc(sizeof(char *) * (tam_map + 1));
+	if (!game->map)
+		return (NULL);
+	while (tam_map != 0)
+	{
+		game->map[j] = ft_strdup(game->data[i]);
+		j++;
+		i++;
+		tam_map--;
+	}
+	game->map[j] = NULL;
+}

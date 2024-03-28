@@ -17,6 +17,14 @@ typedef struct s_game
 	char	**data;
 	int		map_width_dd;
 	int		map_height_dd;
+	char	**file_data;
+	char	*no_path;
+	char	*so_path;
+	char	*we_path;
+	char	*ea_path;
+	char	*c_path;
+	char	*f_path;
+	int		height_data;
 }			t_game;
 
 /*		main.c		*/
@@ -28,6 +36,14 @@ int			ft_perror(const char *str);
 
 /*		Parser		*/
 int			check_extension(const char *fn);
+
+/*		Data_utils	*/
+void		ft_init_values(t_game *game);
+int			ft_all_info_extracted(t_game *game);
+int			ft_get_file_data(char **data, t_game *game);
+void		ft_path_texture(char *line, t_game *game);
+int			ft_check_texture(t_game *game);
+
 /*		Map			*/
 int			ft_num_col_file(int fd);
 int			ft_size_file(char *path);

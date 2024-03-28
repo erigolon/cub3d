@@ -79,14 +79,13 @@ char	**ft_read_fd(char *path, int num_col_file)
 	return (file_data);
 }
 
-
 /*
 	Función principal de obtencion de mapa
 	1. Obtiene el tamaño del archivo
 	2. Lee el archivo y carga el contenido en un array de strings
 	3. Retorna el array de strings
 */
-char	**ft_get_file(char *path)
+char	**ft_get_file(char *path, t_game *game)
 {
 	char	**data;
 	int		num_col_file;
@@ -95,10 +94,11 @@ char	**ft_get_file(char *path)
 	if (num_col_file == 0)
 		ft_perror("fd is empty");
 	data = ft_read_fd(path, num_col_file);
+	game->height_data = num_col_file;
 	return (data);
 }
-
-char	**ft_read_fd(char *path)
+/*
+char	**ft_read_fd(char *path, int num_col)
 {
 	char	**file_data;
 	int		fd;
@@ -115,6 +115,7 @@ char	**ft_read_fd(char *path)
 	ft_charge_file_data(file_data, fd, num_col);
 	return (file_data);
 }
-/*
+
 vamos a localizar los datos previos de 
 */
+

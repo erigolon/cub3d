@@ -1,24 +1,28 @@
 C 225,30,0
 
 SO ./path_to_the_south_texture
-NO ./path_to_the_south_texture
 
 
 EA ./path_to_the_south_texture
-WE ./path_to_the_south_texture
+
 F 225,30,0
+WE ./path_to_the_south_texture
+NO ./path_to_the_south_texture1/rf
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+				1
+x1111111111111          1
+xN0000000P00001
+x10001000000001xxx         xx
+x1000000001001xxxxxx11    1xxx
+x100010000100011111    1N11111
+x100000000100010000xxxx1111001
+x100000000100010000xxxx1111001
+x100000000100010000xxxx1111001
+x11111111111111x111xxxxxxx1101
+xxxxxxxxxxxxxxxxxxxxxxxxxx
+x
+xxxx1111xxxxxxxxxxxxxxxxxx
 
-11111111111111xxxxxxxxxxx
+1
 
 
-
-
-10000000P00001xxxxxxxxxxx xxxx
-10001000000001xxx         xx
-1000000001001xxxxxx11    1xxx
-100010000100011111    1P11111
-100000000100010000xxxx1111001
-11111111111111x111xxxxxxx1101
-xxxxxxxxxxxxxxxxxxxxxxxxx
-
-xxx1111xxxxxxxxxxxxxxxxxx
