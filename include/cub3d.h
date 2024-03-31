@@ -49,10 +49,13 @@ int			ft_num_col_file(int fd);
 int			ft_size_file(char *path);
 char		**ft_read_fd(char *path, int num_col);
 void		ft_charge_file_data(char **map, int fd, int num_col);
-char		**ft_get_file(char *path);
+char		**ft_get_file(char *path, t_game *game);
 
 /*	 Map_utils		*/
 int			ft_different_c(char **map);
 int			ft_get_map_width_dd(char **map);
+
+int	ft_get_start_map(t_game *game, int last_line_saw);
+void	ft_get_map(t_game *game, int tam_map, int start_map);
 
 #endif

@@ -1,7 +1,8 @@
 #include "../../include/cub3d.h"
 
 /*
-	Función que obtiene el número de columnas del archivo(mapa) y info texturas parte 2
+	Función que obtiene el número de columnas del
+	 archivo(mapa) y info texturas parte 2
 */
 int	ft_num_col_file(int fd)
 {
@@ -22,7 +23,8 @@ int	ft_num_col_file(int fd)
 }
 
 /*
-	Función que obtiene el número de columnas del archivo(mapa) y de texturas parte 1
+	Función que obtiene el número de 
+	columnas del archivo(mapa) y de texturas parte 1
 */
 int	ft_size_file(char *path)
 {
@@ -39,7 +41,8 @@ int	ft_size_file(char *path)
 }
 
 /*
-	Función que carga el contenido del archivo(mapa) y texturas en un array de strings
+	Función que carga el contenido del 
+	archivo(mapa) y texturas en un array de strings
 */
 void	ft_charge_file_data(char **data, int fd, int num_col)
 {
@@ -61,6 +64,7 @@ void	ft_charge_file_data(char **data, int fd, int num_col)
 /*
 	Comprobamos si el archivo se abrió correctamente
 */
+
 char	**ft_read_fd(char *path, int num_col_file)
 {
 	char	**file_data;
@@ -89,7 +93,8 @@ char	**ft_get_file(char *path, t_game *game)
 {
 	char	**data;
 	int		num_col_file;
-	//hay que obtener primero valores texturas y colores
+
+	num_col_file = 0;
 	num_col_file = ft_size_file(path);
 	if (num_col_file == 0)
 		ft_perror("fd is empty");

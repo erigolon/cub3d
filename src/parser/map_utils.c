@@ -75,6 +75,7 @@ int	ft_get_start_map(t_game *game, int last_line_saw)
 			return (i);
 		i++;
 	}
+	return (0);
 }
 
 void	ft_get_map(t_game *game, int tam_map, int start_map)
@@ -86,7 +87,7 @@ void	ft_get_map(t_game *game, int tam_map, int start_map)
 	i = start_map;
 	game->map = (char **)malloc(sizeof(char *) * (tam_map + 1));
 	if (!game->map)
-		return (NULL);
+		return ;
 	while (tam_map != 0)
 	{
 		game->map[j] = ft_strdup(game->data[i]);
@@ -95,4 +96,5 @@ void	ft_get_map(t_game *game, int tam_map, int start_map)
 		tam_map--;
 	}
 	game->map[j] = NULL;
+	return ;
 }

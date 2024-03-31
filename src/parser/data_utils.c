@@ -50,6 +50,7 @@ int	ft_get_file_data(char **data, t_game *game)
 		if (ft_all_info_extracted(game))
 			return (i);
 	}
+	return (0);
 }
 
 /*
