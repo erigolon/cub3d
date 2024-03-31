@@ -14,6 +14,7 @@ typedef struct s_game
 {
 	mlx_t	*mlx;
 	char	**map;
+	char	**new_map;
 	char	**data;
 	int		map_width_dd;
 	int		map_height_dd;
@@ -28,34 +29,36 @@ typedef struct s_game
 }			t_game;
 
 /*		main.c		*/
-void	ft_init_values(t_game *game);
 int		init_game(t_game *game);
-/*		Utils		*/
+void	ft_start(t_game *game);
 
-int			ft_perror(const char *str);
+/*		Utils		*/
+int		ft_perror(const char *str);
+void	ft_line_x(void *s, size_t n);
+void	ft_free(char **map);
 
 /*		Parser		*/
-int			check_extension(const char *fn);
+int		check_extension(const char *fn);
+int		ft_different_c(char **map);
 
-/*		Data_utils	*/
-void		ft_init_values(t_game *game);
-int			ft_all_info_extracted(t_game *game);
-int			ft_get_file_data(char **data, t_game *game);
-void		ft_path_texture(char *line, t_game *game);
-int			ft_check_texture(t_game *game);
+/*		Data	*/
+void	ft_init_values(t_game *game);
+int		ft_all_info_extracted(t_game *game);
+int		ft_get_file_data(char **data, t_game *game);
+void	ft_path_texture(char *line, t_game *game);
+int		ft_check_texture(t_game *game);
 
-/*		Map			*/
-int			ft_num_col_file(int fd);
-int			ft_size_file(char *path);
-char		**ft_read_fd(char *path, int num_col);
-void		ft_charge_file_data(char **map, int fd, int num_col);
-char		**ft_get_file(char *path, t_game *game);
+/*		extarct data*/
+char	**ft_get_file(char *path, t_game *game);
+int		ft_num_col_file(int fd);
+int		ft_size_file(char *path);
+char	**ft_read_fd(char *path, int num_col);
+void	ft_charge_file_data(char **map, int fd, int num_col);
 
-/*	 Map_utils		*/
-int			ft_different_c(char **map);
-int			ft_get_map_width_dd(char **map);
-
-int	ft_get_start_map(t_game *game, int last_line_saw);
+/*	 	Map			*/
+int		ft_get_map_width_dd(char **map);
+int		ft_get_start_map(t_game *game, int last_line_saw);
 void	ft_get_map(t_game *game, int tam_map, int start_map);
+void	ft_map_rectangle(t_game *game);
 
 #endif

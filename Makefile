@@ -17,7 +17,7 @@ LIBS	= ${LIBGL} ${LIBMLX}/libmlx42.a ${LIBFT}/libft.a ${LIBGN}/get_next_line.a
 SRCS	= ./src/main.c \
 			./src/cub3d_utils.c \
 			./src/parser/map.c \
-			./src/parser/get_map.c \
+			./src/parser/extract_data.c \
 			./src/parser/map_utils.c \
 			./src/parser/data_utils.c \
 

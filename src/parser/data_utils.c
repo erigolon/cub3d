@@ -4,6 +4,7 @@ void	ft_init_values(t_game *game)
 {
 	game->mlx = NULL;
 	game->map = NULL;
+	game->new_map = NULL;
 	game->data = NULL;
 	game->file_data = NULL;
 	game->map_width_dd = 0;

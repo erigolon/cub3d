@@ -102,25 +102,3 @@ char	**ft_get_file(char *path, t_game *game)
 	game->height_data = num_col_file;
 	return (data);
 }
-/*
-char	**ft_read_fd(char *path, int num_col)
-{
-	char	**file_data;
-	int		fd;
-
-	fd = open(path, O_RDONLY);
-	if (fd < 0)
-		return (NULL);
-	file_data = malloc(sizeof(char *) * (num_col + 1));
-	if (!file_data)
-	{
-		close(fd);
-		ft_perror("FILE malloc problem");
-	}
-	ft_charge_file_data(file_data, fd, num_col);
-	return (file_data);
-}
-
-vamos a localizar los datos previos de 
-*/
-

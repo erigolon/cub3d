@@ -23,11 +23,15 @@ int	ft_different_c(char **map)
 		j = 0;
 		while (map[i][j])
 		{
-			if (!((map[i][j] == 'N' || map[i][j] == 'S')
-				|| (map[i][j] == 'E' || map[i][j] == 'W')
-				|| (map[i][j] == '0') || (map[i][j] == '0')
-				|| (map[i][j] == '2')))
+			if (!((map[i][j] == 'N') || (map[i][j] == 'S')
+				|| (map[i][j] == 'E') || (map[i][j] == 'W')
+				|| (map[i][j] == '0') || (map[i][j] == '1')
+				|| (map[i][j] == '2') || (map[i][j] == ' ')
+				|| (map[i][j] == '\t') || (map[i][j] == '\n')))
+			{
+				printf("\n%c\n", map[i][j]);
 				return (FALSE);
+			}
 			else
 				j++;
 		}
@@ -76,25 +80,4 @@ int	ft_get_start_map(t_game *game, int last_line_saw)
 		i++;
 	}
 	return (0);
-}
-
-void	ft_get_map(t_game *game, int tam_map, int start_map)
-{
-	int	i;
-	int	j;
-
-	j = 0;
-	i = start_map;
-	game->map = (char **)malloc(sizeof(char *) * (tam_map + 1));
-	if (!game->map)
-		return ;
-	while (tam_map != 0)
-	{
-		game->map[j] = ft_strdup(game->data[i]);
-		j++;
-		i++;
-		tam_map--;
-	}
-	game->map[j] = NULL;
-	return ;
 }
