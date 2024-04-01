@@ -6,7 +6,7 @@
 #    By: agil-ord <agil-ord@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/29 14:33:44 by erigolon          #+#    #+#              #
-#    Updated: 2024/03/06 12:02:59 by agil-ord         ###   ########.fr        #
+#    Updated: 2024/04/01 13:04:30 by agil-ord         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -67,7 +67,7 @@ RM = rm -f
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 
 all: $(NAME)
 

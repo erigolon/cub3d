@@ -36,7 +36,6 @@ int	main(int argc, char **argv)
 	t_game	game;
 	int		i;
 
-	i = 0;
 	if (argc != 2)
 		ft_perror("Incorrect number of arguments");
 	if (check_extension(argv[1]))
@@ -44,12 +43,12 @@ int	main(int argc, char **argv)
 	ft_init_values(&game);
 	game.data = ft_get_file(argv[1], &game);
 	ft_start(&game);
+	i = 0;
 	while (game.map[i])
 	{
-		ft_putstr_fd(game.map[i], 1);
-		write(1, "\n", 1);
+		printf("%s\n", game.map[i]);
 		i++;
 	}
-	init_game(&game);
+	// init_game(&game);
 	return (0);
 }

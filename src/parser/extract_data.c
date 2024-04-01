@@ -56,10 +56,10 @@ void	ft_charge_file_data(char **data, int fd, int num_col)
 	while (i < num_col && row_files)
 	{
 		row_files = get_next_line(fd);
-		if (row_files)
-			data[i++] = row_files;
+		if (row_files && row_files[ft_strlen(row_files) - 1] == '\n')
+			row_files[ft_strlen(row_files) - 1] = '\0';
+		data[i++] = row_files;
 	}
-	data[i] = NULL;
 }
 /*
 	Comprobamos si el archivo se abrió correctamente

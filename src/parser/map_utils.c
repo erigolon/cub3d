@@ -26,7 +26,7 @@ int	ft_different_c(char **map)
 			if (!((map[i][j] == 'N') || (map[i][j] == 'S')
 				|| (map[i][j] == 'E') || (map[i][j] == 'W')
 				|| (map[i][j] == '0') || (map[i][j] == '1')
-				|| (map[i][j] == '2') || (map[i][j] == ' ')
+				|| (map[i][j] == 'x') || (map[i][j] == ' ')
 				|| (map[i][j] == '\t') || (map[i][j] == '\n')))
 			{
 				printf("\n%c\n", map[i][j]);
@@ -68,6 +68,7 @@ int	ft_get_start_map(t_game *game, int last_line_saw)
 	int		i;
 	int		j;
 
+	j = 0;
 	i = last_line_saw;
 	while (game->data[i])
 	{
