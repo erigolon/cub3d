@@ -2,11 +2,18 @@
 
 int	init_game(t_game *game)
 {
-	game->mlx = mlx_init(960, 600, "lobito malo 3D", false);
+	game->mlx = mlx_init(game->window_width, game->window_height,
+			"Lobito malo 3D", false);
 	if (!(game->mlx))
 		return (1);
+	get_textures(game);
+	get_images(game);
+	draw_map(game, game->imag);
+	mlx_loop_hook(game->mlx, ft_hook, game);
 	mlx_loop(game->mlx);
 	mlx_terminate(game->mlx);
+	free(game->textu);
+	free(game->imag);
 	return (0);
 }
 
@@ -34,6 +41,13 @@ void	ft_start(t_game *game)
 		ft_perror("Error map open");
 }
 
+void	init_mlx_struct(t_game *game)
+{
+	game->window_width = W_WIDTH;
+	game->window_height = W_HEIGHT;
+
+}
+
 int	main(int argc, char **argv)
 {
 	t_game	game;
@@ -52,8 +66,9 @@ int	main(int argc, char **argv)
 		printf("%s\n", game.new_map[i]);
 		i++;
 	}
-	//printf("%s\n", game.new_map[6]);
-	// init_game(&game);
+	init_mlx_struct(&game);
+	if (init_game(&game))
+		ft_perror("MLX no init");
 	return (0);
 }
 
