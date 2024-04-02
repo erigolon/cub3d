@@ -25,28 +25,46 @@ void	ft_map_rectangle(t_game *game)
 {
 	int		i;
 	int		j;
-	char	**new_map;
 
 	i = 0;
-	new_map = (char **)malloc(sizeof(char *) * (game->map_height_dd + 3));
-	new_map[0] = ft_calloc(game->map_width_dd + 3, sizeof(char));
-	ft_line_x(new_map[0], game->map_width_dd + 2);
+	game->new_map = (char **)malloc(sizeof(char *) * (game->map_height_dd + 3));
+	game->new_map[0] = ft_calloc(game->map_width_dd + 3, sizeof(char));
+	ft_line_x(game->new_map[0], game->map_width_dd + 2);
 	while (game->map[i])
 	{
-		new_map[i + 1] = ft_calloc(game->map_width_dd + 3, sizeof(char));
-		ft_line_x(new_map[i + 1], 1);
+		game->new_map[i + 1] = ft_calloc(game->map_width_dd + 3, sizeof(char));
+		ft_line_x(game->new_map[i + 1], 1);
 		j = 0;
 		while (game->map[i][j])
 		{
-			new_map[i + 1][j + 1] = game->map[i][j];
+			game->new_map[i + 1][j + 1] = game->map[i][j];
 			j++;
 		}
-		new_map[i + 1][j + 1] = 'x';
+		game->new_map[i + 1][j + 1] = 'x';
 		i++;
 	}
-	new_map[i + 1] = ft_calloc(game->map_width_dd + 3, sizeof(char));
-	ft_line_x(new_map[i + 1], game->map_width_dd + 2);
-	new_map[game->map_height_dd + 2] = NULL;
-	ft_free(game->map);
-	game->map = new_map;
+	game->new_map[i + 1] = ft_calloc(game->map_width_dd + 3, sizeof(char));
+	ft_line_x(game->new_map[i + 1], game->map_width_dd + 2);
+	game->new_map[game->map_height_dd + 2] = NULL;
+}
+
+void	ft_replace_sp_tab(t_game *game)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (game->new_map[i])
+	{
+		j = 0;
+		while (game->new_map[i][j])
+		{
+			if (game->new_map[i][j] == ' ')
+				game->new_map[i][j] = 'x';
+			if (game->new_map[i][j] == '\t')
+				game->new_map[i][j] = 'x';
+			j++;
+		}
+		i++;
+	}
 }

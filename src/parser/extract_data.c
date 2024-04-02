@@ -61,10 +61,11 @@ void	ft_charge_file_data(char **data, int fd, int num_col)
 		data[i++] = row_files;
 	}
 }
+
 /*
 	Comprobamos si el archivo se abrió correctamente
+	y cargo la data a traves de la funcion ft_charge_file_data
 */
-
 char	**ft_read_fd(char *path, int num_col_file)
 {
 	char	**file_data;

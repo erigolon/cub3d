@@ -29,6 +29,9 @@ void	ft_start(t_game *game)
 	if (ft_different_c(game->map))
 		ft_perror("Error in map");
 	ft_map_rectangle(game);
+	ft_replace_sp_tab(game);
+	if (ft_map_open(game))
+		ft_perror("Error map open");
 }
 
 int	main(int argc, char **argv)
@@ -44,11 +47,46 @@ int	main(int argc, char **argv)
 	game.data = ft_get_file(argv[1], &game);
 	ft_start(&game);
 	i = 0;
-	while (game.map[i])
+	while (game.new_map[i])
 	{
-		printf("%s\n", game.map[i]);
+		printf("%s\n", game.new_map[i]);
 		i++;
 	}
+	//printf("%s\n", game.new_map[6]);
 	// init_game(&game);
 	return (0);
+}
+
+/*
+esta funcion se encarga de comprobar si todo el mapa esta rodeado de muros
+es decir de caracteres '1', al poder haber un espacio en blanco en el mapa
+he de comprobar todas las posiciones que rodean a un caracter valido, desde el 
+primer 0 o el valor de la posicion de la orientacion del jugador
+por tanto previamente rodee el mapa con carcateres 'x' para poder comprobar
+si el mapa esta rodeado de muros, es decir que si partiendo de cualqier 0 o N,S,E,W
+no puede llegar a una 'x' si ocurre el mapa estaria mal
+*/
+int	ft_map_open(t_game *game)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (game->new_map[i])
+	{
+		j = 0;
+		while (game->new_map[i][j])
+		{
+			if (game->new_map[i][j] == '0' || game->new_map[i][j] == 'N'
+				|| game->new_map[i][j] == 'S' || game->new_map[i][j] == 'E'
+				|| game->new_map[i][j] == 'W')
+			{
+				if (ft_check_open(game, i, j))
+					return (1);
+			}
+			j++;
+		}
+		i++;
+	}
+	return (0);	
 }

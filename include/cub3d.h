@@ -60,5 +60,6 @@ int		ft_get_map_width_dd(char **map);
 int		ft_get_start_map(t_game *game, int last_line_saw);
 void	ft_get_map(t_game *game, int tam_map, int start_map);
 void	ft_map_rectangle(t_game *game);
+void	ft_replace_sp_tab(t_game *game);
 
 #endif
