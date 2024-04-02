@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: erigolon <erigolon@student.42.fr>          +#+  +:+       +#+         #
+#    By: agil-ord <agil-ord@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/09 14:05:02 by erigolon          #+#    #+#              #
-#    Updated: 2024/02/16 15:39:47 by erigolon         ###   ########.fr        #
+#    Updated: 2024/04/01 13:04:46 by agil-ord         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ RM = rm -f
 
 CC = GCC
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 
 all: $(NAME)
 

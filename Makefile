@@ -12,15 +12,14 @@ USER	= $(shell whoami)
 HEADERS	= -I ./includes -I ${LIBMLX}/include -I ${LIBFT} -I ${LIBGN}
 LIBGL	= -lglfw -L"/Users/$(USER)/.brew/opt/glfw/lib"
 LIBS	= ${LIBGL} ${LIBMLX}/libmlx42.a ${LIBFT}/libft.a ${LIBGN}/get_next_line.a
-CFLAGS	= -Wall -Wextra -Werror
-
-
+CFLAGS  = -Wall -Wextra -Werror -g
 
 SRCS	= ./src/main.c \
 			./src/cub3d_utils.c \
-			./src/parser/check_file.c \
-			./src/images.c \
-			./src/move.c
+			./src/parser/map.c \
+			./src/parser/extract_data.c \
+			./src/parser/map_utils.c \
+			./src/parser/data_utils.c \
 
 OBJS	= ${SRCS:.c=.o}
 
@@ -28,13 +27,13 @@ OBJS	= ${SRCS:.c=.o}
 all: libft libmlx libgn ${NAME}
 
 libft:
-	@${MAKE} -s -C ${LIBFT}
+	@${MAKE} -C ${LIBFT}
 
 libmlx:
-	@${MAKE} -s -C ${LIBMLX}
+	@${MAKE} -C ${LIBMLX}
 
 libgn:
-	@${MAKE} -s -C ${LIBGN}
+	@${MAKE} -C ${LIBGN}
 
 %.o: %.c
 	@${CC} ${CFLAGS} -o $@ -c $< ${HEADERS}
