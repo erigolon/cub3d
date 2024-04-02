@@ -12,6 +12,7 @@ USER	= $(shell whoami)
 HEADERS	= -I ./includes -I ${LIBMLX}/include -I ${LIBFT} -I ${LIBGN}
 LIBGL	= -lglfw -L"/Users/$(USER)/.brew/opt/glfw/lib"
 LIBS	= ${LIBGL} ${LIBMLX}/libmlx42.a ${LIBFT}/libft.a ${LIBGN}/get_next_line.a
+CFLAGS	= -Wall -Wextra -Werror
 
 
 
@@ -39,7 +40,7 @@ libgn:
 	@${CC} ${CFLAGS} -o $@ -c $< ${HEADERS}
 
 ${NAME}: ${OBJS}
-	@${CC} ${DFLAGS} ${OBJS} ${LIBS} ${HEADERS} -o ${NAME}
+	@${CC} ${CFLAGS} ${OBJS} ${LIBS} ${HEADERS} -o ${NAME}
 
 clean:
 	@rm -f ${OBJS}
