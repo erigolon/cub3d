@@ -38,6 +38,13 @@ void	ft_start(t_game *game)
 	ft_map_rectangle(game);
 }
 
+void	init_mlx_struct(t_game *game)
+{
+	game->window_width = W_WIDTH;
+	game->window_height = W_HEIGHT;
+
+}
+
 int	main(int argc, char **argv)
 {
 	t_game	game;
@@ -56,6 +63,8 @@ int	main(int argc, char **argv)
 		printf("%s\n", game.map[i]);
 		i++;
 	}
-	// init_game(&game);
+	init_mlx_struct(&game);
+	if (init_game(&game))
+		ft_perror("MLX no init");
 	return (0);
 }

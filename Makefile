@@ -16,10 +16,12 @@ CFLAGS  = -Wall -Wextra -Werror -g
 
 SRCS	= ./src/main.c \
 			./src/cub3d_utils.c \
-			./src/parser/map.c \
+			./src/parser/check_file.c \
 			./src/parser/extract_data.c \
 			./src/parser/map_utils.c \
 			./src/parser/data_utils.c \
+			./src/images.c \
+			./src/move.c
 
 OBJS	= ${SRCS:.c=.o}
 

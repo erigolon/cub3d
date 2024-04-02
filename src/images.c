@@ -20,6 +20,14 @@ void	get_images(t_game *game)
 	mlx_delete_texture(game->textu->my_guy);
 }
 
+int	check_guy(char c)
+{
+	if (c == 'N' || c == 'S'
+		|| c == 'W' || c == 'E')
+		return (1);
+	return (0);
+}
+
 void	draw_guy(t_game *game, t_images *images)
 {
 	int	x;
@@ -31,7 +39,7 @@ void	draw_guy(t_game *game, t_images *images)
 		x = 0;
 		while (game->map[y][x])
 		{
-			if (game->map[y][x] == 'P')
+			if (check_guy(game->map[y][x]))
 				mlx_image_to_window(game->mlx, images->my_guy, x * 32, y * 32);
 			x++;
 		}
@@ -52,7 +60,7 @@ void	draw_map(t_game *game, t_images *images)
 		{
 			if (game->map[y][x] == '1')
 				mlx_image_to_window(game->mlx, images->wall_2d, x * 32, y * 32);
-			if (game->map[y][x] == '0' || game->map[y][x] == 'P')
+			if (game->map[y][x] == '0' || check_guy(game->map[y][x]))
 				mlx_image_to_window(game->mlx, images->floor_2d, x * 32, y * 32);
 			x++;
 		}
