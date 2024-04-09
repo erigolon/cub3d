@@ -15,7 +15,6 @@
 # define W_WIDTH 1920
 # define W_HEIGHT 1080
 
-
 /*		Structs			*/
 
 typedef struct s_textures
@@ -42,6 +41,7 @@ typedef struct s_game
 	char				**map;
 	char				**new_map;
 	char				**data;
+	int					height_data;
 	int					map_width_dd;
 	int					map_height_dd;
 	char				**file_data;
@@ -51,7 +51,8 @@ typedef struct s_game
 	char				*ea_path;
 	char				*c_path;
 	char				*f_path;
-	int					height_data;
+	int					color_floor;
+	int					color_ceiling;
 }			t_game;
 
 /*		main.c		*/
@@ -59,19 +60,20 @@ typedef struct s_game
 int		init_game(t_game *game);
 void	ft_start(t_game *game);
 
-
 /*		Utils		*/
 
 int		ft_perror(const char *str);
 void	ft_line_x(void *s, size_t n);
 void	ft_free(char **map);
 
-
 /*		Parser		*/
 
 int		check_extension(const char *fn);
 int		ft_different_c(char **map);
 
+/*		Colors*/
+int		ft_trans_color(char *line);
+int		ft_get_rgba(int r, int g, int b, int a);
 
 /*		Data	*/
 
@@ -81,11 +83,10 @@ int		ft_get_file_data(char **data, t_game *game);
 void	ft_path_texture(char *line, t_game *game);
 int		ft_check_texture(t_game *game);
 
-
 /*		extarct data	*/
 
 char	**ft_get_file(char *path, t_game *game);
-int		ft_num_col_file(int fd);
+int		ft_num_row_file(int fd);
 int		ft_size_file(char *path);
 char	**ft_read_fd(char *path, int num_col);
 void	ft_charge_file_data(char **map, int fd, int num_col);

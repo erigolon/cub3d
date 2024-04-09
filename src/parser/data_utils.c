@@ -81,3 +81,4 @@ int	ft_check_texture(t_game *game)
 		return (1);
 	return (0);
 }
+

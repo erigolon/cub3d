@@ -5,7 +5,7 @@ void	get_textures(t_game *game)
 	game->textu = ft_calloc(1, sizeof(t_textures));
 	game->textu->wall_2d = mlx_load_png("./textures/wall.png");
 	game->textu->floor_2d = mlx_load_png("./textures/floor.png");
-	game->textu->my_guy = mlx_load_png("./textures/my_guy.png");
+	game->textu->my_guy = mlx_load_png(game->no_path);
 
 }
 
