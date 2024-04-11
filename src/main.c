@@ -39,6 +39,8 @@ void	ft_start(t_game *game)
 	if (ft_different_c(game->map))
 		ft_perror("Error in map");
 	ft_map_rectangle(game);
+	game->color_floor = ft_trans_color(game->f_path);
+	game->color_ceiling = ft_trans_color(game->c_path);
 }
 
 int	main(int argc, char **argv)

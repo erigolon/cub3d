@@ -21,7 +21,9 @@ SRCS	= ./src/main.c \
 			./src/parser/map_utils.c \
 			./src/parser/data_utils.c \
 			./src/init_structs.c \
-			./src/move.c
+			./src/move.c \
+			./src/move.c \
+			./src/parser/colors.c 
 
 OBJS	= ${SRCS:.c=.o}
 

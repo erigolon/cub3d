@@ -4,7 +4,7 @@
 	Función que obtiene el número de columnas del
 	 archivo(mapa) y info texturas parte 2
 */
-int	ft_num_col_file(int fd)
+int	ft_num_row_file(int fd)
 {
 	int		col;
 	char	*line;
@@ -28,16 +28,16 @@ int	ft_num_col_file(int fd)
 */
 int	ft_size_file(char *path)
 {
-	int	num_col_file;
+	int	num_row_file;
 	int	fd;
 
-	num_col_file = 0;
+	num_row_file = 0;
 	fd = open(path, O_RDONLY);
 	if (fd < 0)
 		ft_perror("fd don't open");
-	num_col_file = ft_num_col_file(fd);
+	num_row_file = ft_num_row_file(fd);
 	close(fd);
-	return (num_col_file);
+	return (num_row_file);
 }
 
 /*
@@ -61,11 +61,12 @@ void	ft_charge_file_data(char **data, int fd, int num_col)
 		data[i++] = row_files;
 	}
 }
+
 /*
 	Comprobamos si el archivo se abrió correctamente
+	y cargo la data a traves de la funcion ft_charge_file_data
 */
-
-char	**ft_read_fd(char *path, int num_col_file)
+char	**ft_read_fd(char *path, int num_row_file)
 {
 	char	**file_data;
 	int		fd;
@@ -73,13 +74,13 @@ char	**ft_read_fd(char *path, int num_col_file)
 	fd = open(path, O_RDONLY);
 	if (fd < 0)
 		return (NULL);
-	file_data = malloc(sizeof(char *) * (num_col_file + 1));
+	file_data = malloc(sizeof(char *) * (num_row_file + 1));
 	if (!file_data)
 	{
 		close(fd);
 		ft_perror("FILE malloc problem");
 	}
-	ft_charge_file_data(file_data, fd, num_col_file);
+	ft_charge_file_data(file_data, fd, num_row_file);
 	return (file_data);
 }
 
@@ -92,13 +93,13 @@ char	**ft_read_fd(char *path, int num_col_file)
 char	**ft_get_file(char *path, t_game *game)
 {
 	char	**data;
-	int		num_col_file;
+	int		num_row_file;
 
-	num_col_file = 0;
-	num_col_file = ft_size_file(path);
-	if (num_col_file == 0)
+	num_row_file = 0;
+	num_row_file = ft_size_file(path);
+	if (num_row_file == 0)
 		ft_perror("fd is empty");
-	data = ft_read_fd(path, num_col_file);
-	game->height_data = num_col_file;
+	data = ft_read_fd(path, num_row_file);
+	game->height_data = num_row_file;
 	return (data);
 }

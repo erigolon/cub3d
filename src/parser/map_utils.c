@@ -28,10 +28,7 @@ int	ft_different_c(char **map)
 				|| (map[i][j] == '0') || (map[i][j] == '1')
 				|| (map[i][j] == 'x') || (map[i][j] == ' ')
 				|| (map[i][j] == '\t') || (map[i][j] == '\n')))
-			{
-				printf("\n%c\n", map[i][j]);
 				return (FALSE);
-			}
 			else
 				j++;
 		}

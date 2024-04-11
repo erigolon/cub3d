@@ -33,6 +33,10 @@ void	ft_free(char **map);
 int		check_extension(const char *fn);
 int		ft_different_c(char **map);
 
+/*		Colors*/
+int		ft_trans_color(char *line);
+int		ft_get_rgba(int r, int g, int b, int a);
+
 /*		Data	*/
 
 void	ft_init_values(t_game *game);
@@ -44,7 +48,7 @@ int		ft_check_texture(t_game *game);
 /*		extarct data	*/
 
 char	**ft_get_file(char *path, t_game *game);
-int		ft_num_col_file(int fd);
+int		ft_num_row_file(int fd);
 int		ft_size_file(char *path);
 char	**ft_read_fd(char *path, int num_col);
 void	ft_charge_file_data(char **map, int fd, int num_col);
@@ -55,6 +59,7 @@ int		ft_get_map_width_dd(char **map);
 int		ft_get_start_map(t_game *game, int last_line_saw);
 void	ft_get_map(t_game *game, int tam_map, int start_map);
 void	ft_map_rectangle(t_game *game);
+void	ft_replace_sp_tab(t_game *game);
 
 /*		Move		*/
 
