@@ -8,11 +8,11 @@ void	ft_hook(void *param)
 	if (mlx_is_key_down(game->mlx, MLX_KEY_ESCAPE))
 		mlx_close_window(game->mlx);
 	if (mlx_is_key_down(game->mlx, MLX_KEY_UP))
-		game->imag->my_guy->instances->y -= 5;
+		game->player->pos_y -= 5;
 	if (mlx_is_key_down(game->mlx, MLX_KEY_DOWN))
-		game->imag->my_guy->instances->y += 5;
+		game->player->pos_y += 5;
 	if (mlx_is_key_down(game->mlx, MLX_KEY_LEFT))
-		game->imag->my_guy->instances->x -= 5;
+		game->player->pos_x -= 5;
 	if (mlx_is_key_down(game->mlx, MLX_KEY_RIGHT))
-		game->imag->my_guy->instances->x += 5;
+		game->player->pos_x += 5;
 }

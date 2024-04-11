@@ -20,7 +20,7 @@ SRCS	= ./src/main.c \
 			./src/parser/extract_data.c \
 			./src/parser/map_utils.c \
 			./src/parser/data_utils.c \
-			./src/images.c \
+			./src/init_structs.c \
 			./src/move.c
 
 OBJS	= ${SRCS:.c=.o}

@@ -15,6 +15,8 @@ void	ft_init_values(t_game *game)
 	game->ea_path = NULL;
 	game->c_path = NULL;
 	game->f_path = NULL;
+	game->color_ceiling = 0;
+	game->color_floor = 0;
 	game->height_data = 0;
 }
 
