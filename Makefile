@@ -22,7 +22,8 @@ SRCS	= ./src/main.c \
 			./src/parser/data_utils.c \
 			./src/init_structs.c \
 			./src/move.c \
-			./src/move.c \
+			./src/cal_n_draw.c \
+			./src/free_all.c \
 			./src/parser/colors.c 
 
 OBJS	= ${SRCS:.c=.o}

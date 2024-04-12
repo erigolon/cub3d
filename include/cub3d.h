@@ -34,6 +34,7 @@ int		check_extension(const char *fn);
 int		ft_different_c(char **map);
 
 /*		Colors*/
+
 int		ft_trans_color(char *line);
 int		ft_get_rgba(int r, int g, int b, int a);
 
@@ -44,6 +45,7 @@ int		ft_all_info_extracted(t_game *game);
 int		ft_get_file_data(char **data, t_game *game);
 void	ft_path_texture(char *line, t_game *game);
 int		ft_check_texture(t_game *game);
+void	free_all(t_game *game);
 
 /*		extarct data	*/
 
@@ -64,5 +66,9 @@ void	ft_replace_sp_tab(t_game *game);
 /*		Move		*/
 
 void	ft_hook(void *param);
+
+/*		Draw		*/
+
+void	calculate_n_draw(t_game *game);
 
 #endif

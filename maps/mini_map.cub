@@ -1,12 +1,13 @@
 
-C 225,30,0
+
 
 SO ./path_to_the_south_texture
 
 
 EA ./path_to_the_south_texture
 
-F 225,30,0
+C 25,80,200
+F 20,100,60
 WE ./path_to_the_south_texture
 NO ./textures/my_guy.png
 

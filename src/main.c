@@ -1,9 +1,9 @@
 #include "../include/cub3d.h"
 
-// static void	ft_leaks(void)
-// {
-// 	system("leaks -q cub3D");
-// }
+static void	ft_leaks(void)
+{
+	system("leaks -q cub3D");
+}
 
 int	init_game(t_game *game)
 {
@@ -13,10 +13,10 @@ int	init_game(t_game *game)
 		return (1);
 	game->image = mlx_new_image(game->mlx, W_WIDTH, W_HEIGHT);
 	mlx_image_to_window(game->mlx, game->image, 0, 0);
+	calculate_n_draw(game);
 	mlx_loop_hook(game->mlx, ft_hook, game);
 	mlx_loop(game->mlx);
 	mlx_terminate(game->mlx);
-	// free_all(game);
 	return (0);
 }
 
@@ -47,7 +47,7 @@ int	main(int argc, char **argv)
 {
 	t_game	game;
 
-	// atexit(ft_leaks);
+	atexit(ft_leaks);
 	if (argc != 2)
 		ft_perror("Incorrect number of arguments");
 	if (check_extension(argv[1]))
@@ -58,5 +58,6 @@ int	main(int argc, char **argv)
 	init_mlx_struct(&game);
 	if (init_game(&game))
 		ft_perror("MLX no init");
+	free_all(&game);
 	return (0);
 }
