@@ -27,6 +27,8 @@ void	free_all(t_game *game)
 		free_textu(game);
 	if (game->player)
 		free(game->player);
+	if (game->raycast)
+		free(game->raycast);
 	if (game)
 		free_game(game);
 }

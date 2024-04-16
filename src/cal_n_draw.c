@@ -19,9 +19,12 @@ static void	draw_sky_floor(t_game *game, int x)
 
 void	calculate_n_draw(t_game *game)
 {
-	int	x;
+	int		x;
+	double	single_ray;
 
 	x = 0;
+	game->raycast->angle = game->player->angle - (game->pov / 2);
+	single_ray = (game->pov / W_WIDTH);
 	while (x < W_WIDTH)
 	{
 		draw_sky_floor(game, x);

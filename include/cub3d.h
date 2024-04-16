@@ -7,6 +7,7 @@
 # include "cub3d_structs.h"
 # include <stdio.h>
 # include <unistd.h>
+# include <math.h>
 
 /*		Defines			*/
 
