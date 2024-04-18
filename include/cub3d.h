@@ -45,15 +45,27 @@ typedef struct s_game
 	int					map_width_dd;
 	int					map_height_dd;
 	char				**file_data;
-	char				*no_path;
-	char				*so_path;
-	char				*we_path;
-	char				*ea_path;
-	char				*c_path;
-	char				*f_path;
+	struct s_info_textu	i_textu;
 	int					color_floor;
 	int					color_ceiling;
 }			t_game;
+
+
+typedef struct s_info_textu
+{
+	char	*no_path;
+	char	*so_path;
+	char	*we_path;
+	char	*ea_path;
+	char	*c_path;
+	char	*f_path;
+	int 	check_no;
+	int 	check_so;
+	int 	check_we;
+	int 	check_ea;
+	int 	check_c;
+	int 	check_f;
+}			t_info_textu;
 
 /*		main.c		*/
 
@@ -71,7 +83,7 @@ void	ft_free(char **map);
 int		check_extension(const char *fn);
 int		ft_different_c(char **map);
 
-/*		Colors*/
+/*		Colors		*/
 int		ft_trans_color(char *line);
 int		ft_get_rgba(int r, int g, int b, int a);
 

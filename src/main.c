@@ -25,6 +25,8 @@ void	ft_start(t_game *game)
 	map_start = 0;
 	last_line_saw = 0;
 	last_line_saw = ft_get_file_data(game->data, game);
+	if(game->data[last_line_saw] == NULL)
+		ft_perror("No have data map");
 	if (ft_check_texture(game))
 		ft_perror("Error in textures");
 	map_start = ft_get_start_map(game, last_line_saw);

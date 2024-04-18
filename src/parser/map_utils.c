@@ -66,6 +66,9 @@ int	ft_get_start_map(t_game *game, int last_line_saw)
 	int		j;
 
 	j = 0;
+	
+	if (last_line_saw == 0)
+		return (0);
 	i = last_line_saw;
 	while (game->data[i])
 	{
