@@ -15,6 +15,8 @@ void	ft_init_values(t_game *game)
 	game->i_textu.ea_path = NULL;
 	game->i_textu.c_path = NULL;
 	game->i_textu.f_path = NULL;
+	game->color_ceiling = 0;
+	game->color_floor = 0;
 	game->height_data = 0;
 	game->i_textu.check_no = 0;
 	game->i_textu.check_so = 0;

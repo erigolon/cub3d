@@ -1,4 +1,16 @@
 
+
+
+SO ./path_to_the_south_texture
+
+
+EA ./path_to_the_south_texture
+
+C 25,80,200
+F 20,100,60
+WE ./path_to_the_south_texture
+NO ./textures/my_guy.png
+
 1111111111111111111111111   111111111111111111111111111
 1111111111111100000000001   110000000000111000000000011
 1000000000011111111111111   111111111111111111111111111
@@ -7,13 +19,14 @@
 1111111111111
 
 
-C 225,30,0
+
 
 SO ./path_to_the_south_texture
 
 
 EA ./path_to_the_south_texture
 
-F 225,30,0
+C 25,80,200
+F 20,100,60
 WE ./path_to_the_south_texture
 NO ./textures/my_guy.png

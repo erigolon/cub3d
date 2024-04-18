@@ -1,19 +1,22 @@
 #include "../include/cub3d.h"
 
+static void	ft_leaks(void)
+{
+	system("leaks -q cub3D");
+}
+
 int	init_game(t_game *game)
 {
 	game->mlx = mlx_init(game->window_width, game->window_height,
 			"Lobito malo 3D", false);
 	if (!(game->mlx))
 		return (1);
-	get_textures(game);
-	get_images(game);
-	draw_map(game, game->imag);
+	game->image = mlx_new_image(game->mlx, W_WIDTH, W_HEIGHT);
+	mlx_image_to_window(game->mlx, game->image, 0, 0);
+	calculate_n_draw(game);
 	mlx_loop_hook(game->mlx, ft_hook, game);
 	mlx_loop(game->mlx);
 	mlx_terminate(game->mlx);
-	free(game->textu);
-	free(game->imag);
 	return (0);
 }
 
@@ -42,17 +45,11 @@ void	ft_start(t_game *game)
 	game->color_ceiling = ft_trans_color(game->c_path);
 }
 
-void	init_mlx_struct(t_game *game)
-{
-	game->window_width = W_WIDTH;
-	game->window_height = W_HEIGHT;
-}
-
 int	main(int argc, char **argv)
 {
 	t_game	game;
-	int		i;
 
+	atexit(ft_leaks);
 	if (argc != 2)
 		ft_perror("Incorrect number of arguments");
 	if (check_extension(argv[1]))
@@ -60,14 +57,9 @@ int	main(int argc, char **argv)
 	ft_init_values(&game);
 	game.data = ft_get_file(argv[1], &game);
 	ft_start(&game);
-	i = 0;
-	while (game.map[i])
-	{
-		printf("%s\n", game.map[i]);
-		i++;
-	}
 	init_mlx_struct(&game);
 	if (init_game(&game))
 		ft_perror("MLX no init");
+	free_all(&game);
 	return (0);
 }
