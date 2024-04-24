@@ -17,15 +17,13 @@ void	ft_line_x(void *s, size_t n)
 		c[i++] = 'x';
 }
 
-void	ft_free(char **map)
+void	ft_clean_data(t_game *game)
 {
-	int	i;
+	char	**split_data;
 
-	i = 0;
-	while (map[i])
-	{
-		free(map[i]);
-		i++;
-	}
-	free(map);
+	split_data = NULL;
+	//split_data = ft_split(game->data, '\n');
+	ft_free(game->data);
+	game->data = split_data;
+	ft_free(split_data);
 }

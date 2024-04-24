@@ -27,7 +27,7 @@ void	ft_start(t_game *game);
 
 int		ft_perror(const char *str);
 void	ft_line_x(void *s, size_t n);
-void	ft_free(char **map);
+void	ft_free(char **str);
 
 /*		Parser		*/
 
@@ -48,6 +48,16 @@ void	ft_path_texture(char *line, t_game *game);
 int		ft_check_texture(t_game *game);
 void	free_all(t_game *game);
 
+/*check_textures*/
+
+int		ft_check_no(char *data, t_game *game);
+int		ft_check_so(char *data, t_game *game);
+int		ft_check_we(char *data, t_game *game);
+int		ft_check_ea(char *data, t_game *game);
+int		ft_check_c(char *data, t_game *game);
+int		ft_check_f(char *data, t_game *game);
+int		ft_check_line(char *data);
+
 /*		extarct data	*/
 
 char	**ft_get_file(char *path, t_game *game);
@@ -63,6 +73,8 @@ int		ft_get_start_map(t_game *game, int last_line_saw);
 void	ft_get_map(t_game *game, int tam_map, int start_map);
 void	ft_map_rectangle(t_game *game);
 void	ft_replace_sp_tab(t_game *game);
+void	ft_view_data(char **map);
+void	ft_clean_data(t_game *game);
 
 /*		Move		*/
 
@@ -71,5 +83,13 @@ void	ft_hook(void *param);
 /*		Draw		*/
 
 void	calculate_n_draw(t_game *game);
+
+
+/*clean data*/
+int		ft_count_valid_lines(char **data);
+char	**ft_create_clean_data_array(int new_line_count);
+char	**ft_copy_valid_lines(char **data, char **new_data);
+int		ft_is_valid_line(char *line);
+char	**ft_clean_data_copy(char **data);
 
 #endif

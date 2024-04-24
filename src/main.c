@@ -24,11 +24,20 @@ void	ft_start(t_game *game)
 {
 	int		last_line_saw;
 	int		map_start;
+	char	**copy_data;
 
 	map_start = 0;
 	last_line_saw = 0;
-	last_line_saw = ft_get_file_data(game->data, game);
-	if(game->data[last_line_saw] == NULL)
+	ft_view_data(game->data);
+	printf("\n\n");
+	copy_data = ft_clean_data_copy(game->data);
+	ft_view_data(copy_data);
+	ft_free(game->data);
+	//ft_extract_path(game, copy_data);
+	//ft_clean_data(game);
+	//ft_view_map(game->data);
+	/*last_line_saw = ft_get_file_data(game->data, game);
+	if (game->data[last_line_saw] == NULL)
 		ft_perror("No have data map");
 	if (ft_check_texture(game))
 		ft_perror("Error in textures");
@@ -42,7 +51,7 @@ void	ft_start(t_game *game)
 		ft_perror("Error in map");
 	ft_map_rectangle(game);
 	game->color_floor = ft_trans_color(game->f_path);
-	game->color_ceiling = ft_trans_color(game->c_path);
+	game->color_ceiling = ft_trans_color(game->c_path);*/
 }
 
 int	main(int argc, char **argv)
@@ -55,11 +64,11 @@ int	main(int argc, char **argv)
 	if (check_extension(argv[1]))
 		ft_perror("Invalid file extension");
 	ft_init_values(&game);
-	game.data = ft_get_file(argv[1], &game);
+	game.data = ft_get_file(argv[1], &game);//hasta aqui todo bien
 	ft_start(&game);
-	init_mlx_struct(&game);
+	/*init_mlx_struct(&game);
 	if (init_game(&game))
 		ft_perror("MLX no init");
-	free_all(&game);
+	free_all(&game);*/
 	return (0);
 }

@@ -25,6 +25,8 @@ SRCS	= ./src/main.c \
 			./src/cal_n_draw.c \
 			./src/free_all.c \
 			./src/parser/check_textures.c \
+			./src/parser/check_textures2.c \
+			./src/parser/clean_data.c \
 			./src/parser/colors.c 
 
 OBJS	= ${SRCS:.c=.o}

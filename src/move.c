@@ -2,12 +2,14 @@
 
 void	rotate(t_game *game, int dir)
 {
-
+	(void)dir;
+	(void)game;
 }
 
 void	move(t_game *game, int dir)
 {
-	
+	(void)dir;
+	(void)game;
 }
 
 void	ft_hook(void *param)

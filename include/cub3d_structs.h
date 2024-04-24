@@ -47,6 +47,12 @@ typedef struct s_game
 	char				*ea_path;
 	char				*c_path;
 	char				*f_path;
+	int					check_no;
+	int					check_so;
+	int					check_we;
+	int					check_ea;
+	int					check_c;
+	int					check_f;
 	int					color_floor;
 	int					color_ceiling;
 	int					height_data;

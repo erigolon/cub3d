@@ -2,7 +2,7 @@
 
 /*
 	Función que obtiene el número de columnas del
-	 archivo(mapa) y info texturas parte 2
+	 archivo(mapa) e info texturas parte 2
 */
 int	ft_num_row_file(int fd)
 {
@@ -81,6 +81,7 @@ char	**ft_read_fd(char *path, int num_row_file)
 		ft_perror("FILE malloc problem");
 	}
 	ft_charge_file_data(file_data, fd, num_row_file);
+	file_data[num_row_file] = NULL;
 	return (file_data);
 }
 
