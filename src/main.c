@@ -18,7 +18,7 @@ int	init_game(t_game *game)
 	mlx_loop(game->mlx);
 	mlx_terminate(game->mlx);
 	return (0);
-}
+} 
 
 void	ft_start(t_game *game)
 {
@@ -33,7 +33,15 @@ void	ft_start(t_game *game)
 	copy_data = ft_clean_data_copy(game->data);
 	ft_view_data(copy_data);
 	ft_free(game->data);
-	//ft_extract_path(game, copy_data);
+	ft_extract_path(copy_data, game);
+/*
+	printf("NO: %s\n", game->no_path);
+	printf("SO: %s\n", game->so_path);
+	printf("WE: %s\n", game->we_path);
+	printf("EA: %s\n", game->ea_path);
+	printf("C: %s\n", game->c_path);
+	printf("F: %s\n", game->f_path);
+*/
 	//ft_clean_data(game);
 	//ft_view_map(game->data);
 	/*last_line_saw = ft_get_file_data(game->data, game);

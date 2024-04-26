@@ -49,13 +49,14 @@ int		ft_check_texture(t_game *game);
 void	free_all(t_game *game);
 
 /*check_textures*/
-
+/*
 int		ft_check_no(char *data, t_game *game);
 int		ft_check_so(char *data, t_game *game);
 int		ft_check_we(char *data, t_game *game);
 int		ft_check_ea(char *data, t_game *game);
 int		ft_check_c(char *data, t_game *game);
 int		ft_check_f(char *data, t_game *game);
+*/
 int		ft_check_line(char *data);
 
 /*		extarct data	*/
@@ -84,12 +85,18 @@ void	ft_hook(void *param);
 
 void	calculate_n_draw(t_game *game);
 
-
 /*clean data*/
 int		ft_count_valid_lines(char **data);
 char	**ft_create_clean_data_array(int new_line_count);
 char	**ft_copy_valid_lines(char **data, char **new_data);
 int		ft_is_valid_line(char *line);
 char	**ft_clean_data_copy(char **data);
+
+/*path*/
+
+int		ft_no_found_path(char *data);
+void	ft_path_textures(char *line, t_game *game);
+void	ft_clean_path_textures(char *line);
+void	ft_extract_path(char **cpy_data, t_game *game);
 
 #endif

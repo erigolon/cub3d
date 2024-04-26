@@ -95,6 +95,5 @@ char	**ft_clean_data_copy(char **data)
 	if (!new_data)
 		return (NULL);
 	new_data = ft_copy_valid_lines(data, new_data);
-
 	return (new_data);
 }
