@@ -28,9 +28,9 @@ void	ft_start(t_game *game)
 
 	map_start = 0;
 	last_line_saw = 0;
-	ft_view_data(game->data);
-	printf("\n\n");
+	ft_check_lines_map(game->data);
 	copy_data = ft_clean_data_copy(game->data);
+	//comprobar si hay saltos de linea dentro del mapa y mandar error en caso de que si
 	ft_view_data(copy_data);
 	ft_free(game->data);
 	ft_extract_path(copy_data, game);

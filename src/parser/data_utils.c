@@ -53,44 +53,51 @@ int	ft_check_texture(t_game *game)
 void	ft_extract_path(char **cpy_data, t_game *game)
 {
 	int	i;
+	int all_path;
 
+	all_path = 6;
 	i = 0;
-	while (cpy_data[i])
+	while (cpy_data[i] && all_path != 0)
 	{
 		if (cpy_data[i] && ft_strncmp(cpy_data[i], "NO ", 3) == 0)
 		{
 			if (game->no_path == NULL)
 				ft_path_textures(cpy_data[i], game);
 			else
-				ft_perror("Error in data path");
+				ft_perror("Error in data North");
+			all_path--;
 		}
 		else if (cpy_data[i] && ft_strncmp(cpy_data[i], "SO ", 3) == 0)
 		{
 			if (game->so_path == NULL)
 				ft_path_textures(cpy_data[i], game);
 			else
-				ft_perror("Error in data path");
+				ft_perror("Error data south");
+			all_path--;
 		}
 		else if (cpy_data[i] && ft_strncmp(cpy_data[i], "WE ", 3) == 0)
 		{
 			if (game->we_path == NULL)
 				ft_path_textures(cpy_data[i], game);
 			else
-				ft_perror("Error in data path");
+				ft_perror("Error data West");
+			all_path--;
 		}
 		else if (cpy_data[i] && ft_strncmp(cpy_data[i], "EA ", 3) == 0)
 		{
 			if (game->ea_path == NULL)
 				ft_path_textures(cpy_data[i], game);
 			else
-				ft_perror("Error in data path");
+				ft_perror("Error data East");
+			all_path--;
 		}
 		else if (cpy_data[i] && ft_strncmp(cpy_data[i], "C ", 2) == 0)
 		{
 			if (game->c_path == NULL)
 				ft_path_textures(cpy_data[i], game);
 			else
-				ft_perror("Error in data path");
+				ft_perror("Error data Ceilling");
+			all_path--;
 		}
 		else if (cpy_data[i] && ft_strncmp(cpy_data[i], "F ", 2) == 0)
 		{
@@ -98,11 +105,15 @@ void	ft_extract_path(char **cpy_data, t_game *game)
 				ft_path_textures(cpy_data[i], game);
 			else
 				ft_perror("Error in data path");
+			all_path--;
 		}
+		if (all_path == 0)
+			break ;
+		else if (all_path != 0 && ft_no_found_path(cpy_data[i]))
+			ft_perror("Error in data path");
 		i++;
-		if (ft_check_all_extracted(game) == 1 && ft_no_found_path(cpy_data[i]) == 1)
-			ft_perror("Errooooor in data path");
 	}
+	
 }
 
 int	ft_no_found_path(char *data)
@@ -205,8 +216,8 @@ void	ft_clean_path_textures(char *line)
 	char	*tmp;
 	int		j;
 
-	j = 0;
 	i = 0;
+	j = 0;
 	tmp = ft_strdup(line);
 	if (!tmp)
 		ft_perror("Error in strdup");
