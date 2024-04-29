@@ -40,6 +40,7 @@ typedef struct s_game
 	double				pov;
 	int					map_width_dd;
 	int					map_height_dd;
+	int					start_map;
 	char				**file_data;
 	char				*no_path;
 	char				*so_path;
@@ -51,5 +52,8 @@ typedef struct s_game
 	int					color_ceiling;
 	int					height_data;
 }			t_game;
+
+
+
 
 #endif

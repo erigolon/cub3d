@@ -94,9 +94,18 @@ char	**ft_clean_data_copy(char **data);
 
 /*path*/
 
-int		ft_no_found_path(char *data);
 void	ft_path_textures(char *line, t_game *game);
 void	ft_clean_path_textures(char *line);
 void	ft_extract_path(char **cpy_data, t_game *game);
+
+//new fuction
+
+void	ft_check_lines_map(t_game *game, char **data);
+int		ft_map_with_empty_lines(char **data, int i);
+int		ft_line_empty(char *str);
+int		ft_no_found_path(char *data);
+int	ft_line_empty_2(char *str);
+void ft_check_empty_lines_map(char **data, int start_map);
+
 
 #endif

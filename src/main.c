@@ -28,20 +28,20 @@ void	ft_start(t_game *game)
 
 	map_start = 0;
 	last_line_saw = 0;
-	ft_check_lines_map(game->data);
+	ft_check_lines_map(game, game->data);
+	ft_check_empty_lines_map(game->data, game->start_map);
 	copy_data = ft_clean_data_copy(game->data);
-	//comprobar si hay saltos de linea dentro del mapa y mandar error en caso de que si
 	ft_view_data(copy_data);
 	ft_free(game->data);
-	ft_extract_path(copy_data, game);
-/*
+
 	printf("NO: %s\n", game->no_path);
 	printf("SO: %s\n", game->so_path);
 	printf("WE: %s\n", game->we_path);
 	printf("EA: %s\n", game->ea_path);
 	printf("C: %s\n", game->c_path);
 	printf("F: %s\n", game->f_path);
-*/
+	ft_extract_path(copy_data, game);
+
 	//ft_clean_data(game);
 	//ft_view_map(game->data);
 	/*last_line_saw = ft_get_file_data(game->data, game);
@@ -79,4 +79,20 @@ int	main(int argc, char **argv)
 		ft_perror("MLX no init");
 	free_all(&game);*/
 	return (0);
+}
+void ft_check_empty_lines_map(char **data, int start_map)
+{
+	int i;
+	int gay;
+
+	gay = 0;
+	i = start_map;
+	while (data[i])
+	{
+		if (ft_line_empty(data[i]))
+			gay = 1;
+		if (!ft_line_empty(data[i]) && gay == 1)
+			ft_perror("Error in map");
+		i++;
+	}
 }
