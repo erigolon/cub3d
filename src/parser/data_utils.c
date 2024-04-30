@@ -29,17 +29,7 @@ int	ft_check_all_extracted(t_game *game)
 {
 	if (game->no_path && game->so_path && game->we_path
 		&& game->ea_path && game->c_path && game->f_path)
-	{
-/*
-		printf("NO:%s\n", game->no_path);
-		printf("SO:%s\n", game->so_path);
-		printf("WE:%s\n", game->we_path);
-		printf("EA:%s\n", game->ea_path);
-		printf("C:%s\n", game->c_path);
-		printf("F:%s\n", game->f_path);
-*/
 		return (0);
-	}
 	return (1);
 }
 
@@ -60,7 +50,7 @@ void	ft_extract_path(char **cpy_data, t_game *game)
 	i = 0;
 	while (cpy_data[i] || all_path != 0)
 	{
-		if (cpy_data[i] && ft_line_empty_2(cpy_data[i]))
+		if (cpy_data[i] && ft_line_empty_2(cpy_data[i]) && game->no_path == NULL)
 		{
 			if (game->no_path == NULL)
 				ft_path_textures(cpy_data[i], game);
@@ -68,7 +58,7 @@ void	ft_extract_path(char **cpy_data, t_game *game)
 				ft_perror("Error in data North");
 			all_path--;
 		}
-		else if (cpy_data[i] && ft_line_empty_2(cpy_data[i]))
+		else if (cpy_data[i] && ft_line_empty_2(cpy_data[i]) && game->so_path == NULL)
 		{
 			if (game->so_path == NULL)
 				ft_path_textures(cpy_data[i], game);
@@ -76,7 +66,7 @@ void	ft_extract_path(char **cpy_data, t_game *game)
 				ft_perror("Error data south");
 			all_path--;
 		}
-		else if (cpy_data[i] && ft_line_empty_2(cpy_data[i]))
+		else if (cpy_data[i] && ft_line_empty_2(cpy_data[i]) && game->we_path == NULL)
 		{
 			if (game->we_path == NULL)
 				ft_path_textures(cpy_data[i], game);
@@ -84,7 +74,7 @@ void	ft_extract_path(char **cpy_data, t_game *game)
 				ft_perror("Error data West");
 			all_path--;
 		}
-		else if (cpy_data[i] && ft_line_empty_2(cpy_data[i]))
+		else if (cpy_data[i] && ft_line_empty_2(cpy_data[i]) && game->ea_path == NULL)
 		{
 			if (game->ea_path == NULL)
 				ft_path_textures(cpy_data[i], game);
@@ -92,7 +82,7 @@ void	ft_extract_path(char **cpy_data, t_game *game)
 				ft_perror("Error data East");
 			all_path--;
 		}
-		else if (cpy_data[i] && ft_line_empty_2(cpy_data[i]))
+		else if (cpy_data[i] && ft_line_empty_2(cpy_data[i]) && game->c_path == NULL)
 		{
 			if (game->c_path == NULL)
 				ft_path_textures(cpy_data[i], game);
@@ -100,7 +90,7 @@ void	ft_extract_path(char **cpy_data, t_game *game)
 				ft_perror("Error data Ceilling");
 			all_path--;
 		}
-		else if (cpy_data[i] && ft_line_empty_2(cpy_data[i]))
+		else if (cpy_data[i] && ft_line_empty_2(cpy_data[i]) && game->f_path == NULL)
 		{
 			if (game->f_path == NULL)
 				ft_path_textures(cpy_data[i], game);
@@ -108,11 +98,8 @@ void	ft_extract_path(char **cpy_data, t_game *game)
 				ft_perror("Error in data floor");
 			all_path--;
 		}
-
-		printf("all_path %d\n", all_path);
-		printf("data %s\n", cpy_data[i]);
 		if (all_path != 0 && !ft_line_empty_2(cpy_data[i]))
-			ft_perror("Error in data paaaaaaath");
+			ft_perror("Error no have all path");
 		else
 			i++;
 	}
@@ -126,40 +113,20 @@ archivo para extraer los valores
 
 /*La pregunta es que pasa si lo hago al reves,
 si recorro sacando los datos hasta encontrar */
-/*
-int	ft_get_file_data(char **data, t_game *game)
+
+void	ft_get_file_data(char **data, t_game *game)
 {
-	int	i;
-	int	data_compleate;
+	ft_view_data(data);
+			printf("\nfloor %s\n", game->f_path);
+			printf("\norte %s\n", game->no_path);
+			printf("\nsur %s\n", game->so_path);
+			printf("\noeste %s\n", game->we_path);
+			printf("\neast %s\n", game->ea_path);
+			printf("\nceiling%s\n", game->c_path);
+	//	return (ft_perror("Error with data map"));
 
-	i = 0;
-	data_compleate = 0;
-	while (data[i])
-	{
-		if (ft_check_no(data[i], game)
-			|| ft_check_so(data[i], game)
-			|| ft_check_ea(data[i], game)
-			|| ft_check_we(data[i], game)
-			|| ft_check_c(data[i], game)
-			|| ft_check_f(data[i], game))
-			return (ft_perror("Error data map"));
-		if (ft_all_info_extracted(game))
-			data_compleate = 1;
-		i++;
-		if (ft_check_line(data[i]) && data_compleate == 0)
-		{
-			printf("\ndata %s\n", game->f_path);
-			printf("\ndata %s\n", game->no_path);
-			printf("\ndata %s\n", game->so_path);
-			printf("\ndata %s\n", game->we_path);
-			printf("\ndata %s\n", game->ea_path);
-			printf("\ndata %s\n", game->c_path);
-			return (ft_perror("Error with data map"));
-		}
-	}
-	return (0);
 }
-
+/*
 con esta funcion extraigo todas las texturas 
 y valores relacionados con el mapa
 */
@@ -170,31 +137,37 @@ void	ft_path_textures(char *line, t_game *game)
 	{
 		ft_clean_path_textures(line);
 		game->no_path = ft_strdup(line + 2);
+		printf("\nholaNO: %s\n", game->no_path);
 	}
 	else if (ft_strncmp(line, "SO", 2) == 0)
 	{
 		ft_clean_path_textures(line);
 		game->so_path = ft_strdup(line + 2);
+		printf("\nholaSO: %s\n", game->so_path);
 	}
 	else if (ft_strncmp(line, "WE", 2) == 0)
 	{
 		ft_clean_path_textures(line);
 		game->we_path = ft_strdup(line + 2);
+		printf("\nholaWE: %s\n", game->we_path);
 	}
 	else if (ft_strncmp(line, "EA", 2) == 0)
 	{
 		ft_clean_path_textures(line);
 		game->ea_path = ft_strdup(line + 2);
+		printf("\nholaEA: %s\n", game->ea_path);
 	}
 	else if (ft_strncmp(line, "C", 1) == 0)
 	{
 		ft_clean_path_textures(line);
 		game->c_path = ft_strdup(line + 1);
+		printf("\nholaC: %s\n", game->c_path);
 	}
 	else if (ft_strncmp(line, "F", 1) == 0)
 	{
 		ft_clean_path_textures(line);
 		game->f_path = ft_strdup(line + 1);
+		printf("\nholaF: %s\n", game->f_path);
 	}
 }
 /*
@@ -214,7 +187,7 @@ void	ft_clean_path_textures(char *line)
 		ft_perror("Error in strdup");
 	while (line[i])
 	{
-		while (line && (line[i] == ' ' || line[i] == '\t'))
+		while (line[i] && (line[i] == ' ' || line[i] == '\t'))
 			i++;
 		tmp[j] = line[i];
 		i++;

@@ -28,23 +28,20 @@ void	ft_start(t_game *game)
 
 	map_start = 0;
 	last_line_saw = 0;
-	ft_check_lines_map(game, game->data);
-	ft_check_empty_lines_map(game->data, game->start_map);
+	ft_check_lines_map(game, game->data);//ubica principio del mapa
+	ft_check_empty_lines_map(game->data, game->start_map);//comprueba que no tenga saltos de linea entre medio del mapa
 	copy_data = ft_clean_data_copy(game->data);
-	ft_view_data(copy_data);
-	ft_free(game->data);
-
-	printf("NO: %s\n", game->no_path);
-	printf("SO: %s\n", game->so_path);
-	printf("WE: %s\n", game->we_path);
-	printf("EA: %s\n", game->ea_path);
-	printf("C: %s\n", game->c_path);
-	printf("F: %s\n", game->f_path);
+	//write(1, "\ntpe\n", 5);
+	printf("\nfloor %s\n", game->f_path);
+	printf("\norte %s\n", game->no_path);
+	printf("\nsur %s\n", game->so_path);
+	printf("\noeste %s\n", game->we_path);
+	printf("\neast %s\n", game->ea_path);
+	printf("\nceiling%s\n", game->c_path);
 	ft_extract_path(copy_data, game);
-
-	//ft_clean_data(game);
-	//ft_view_map(game->data);
-	/*last_line_saw = ft_get_file_data(game->data, game);
+	//hasta aqui todo ok
+	//last_line_saw = ft_get_file_data(game->data, game);
+	ft_get_file_data(game->data, game);
 	if (game->data[last_line_saw] == NULL)
 		ft_perror("No have data map");
 	if (ft_check_texture(game))
@@ -59,7 +56,8 @@ void	ft_start(t_game *game)
 		ft_perror("Error in map");
 	ft_map_rectangle(game);
 	game->color_floor = ft_trans_color(game->f_path);
-	game->color_ceiling = ft_trans_color(game->c_path);*/
+	game->color_ceiling = ft_trans_color(game->c_path);
+	write(1, "pepe", 4);
 }
 
 int	main(int argc, char **argv)
@@ -72,7 +70,7 @@ int	main(int argc, char **argv)
 	if (check_extension(argv[1]))
 		ft_perror("Invalid file extension");
 	ft_init_values(&game);
-	game.data = ft_get_file(argv[1], &game);//hasta aqui todo bien
+	game.data = ft_get_file(argv[1], &game);//obten toda la data
 	ft_start(&game);
 	/*init_mlx_struct(&game);
 	if (init_game(&game))

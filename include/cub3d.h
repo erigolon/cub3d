@@ -43,7 +43,6 @@ int		ft_get_rgba(int r, int g, int b, int a);
 
 void	ft_init_values(t_game *game);
 int		ft_all_info_extracted(t_game *game);
-int		ft_get_file_data(char **data, t_game *game);
 void	ft_path_texture(char *line, t_game *game);
 int		ft_check_texture(t_game *game);
 void	free_all(t_game *game);
@@ -99,6 +98,7 @@ void	ft_clean_path_textures(char *line);
 void	ft_extract_path(char **cpy_data, t_game *game);
 
 //new fuction
+void		ft_get_file_data(char **data, t_game *game);
 
 void	ft_check_lines_map(t_game *game, char **data);
 int		ft_map_with_empty_lines(char **data, int i);

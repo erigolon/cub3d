@@ -37,7 +37,8 @@ int	ft_line_empty_2(char *str)
 	int	i;
 
 	i = 0;
-	while (str[i] && (str[i] == ' ' || str[i] == '\t'))
+//	write(1, "\nPAPA\n", 6);
+	while (str[i] && ((str[i] == ' ' || str[i] == '\t')))
 		i++;
 	if (str[i] && ft_no_found_path(str + i))
 		return (1);
@@ -52,7 +53,10 @@ int	ft_no_found_path(char *data)
 		|| ft_strncmp(data, "EA", 2) == 0
 		|| ft_strncmp(data, "C", 1) == 0
 		|| ft_strncmp(data, "F", 1) == 0)
-		return (1);
+		{
+			//write(1, "\npapa\n", 6);
+			return (1);
+		}
 	return (0);
 }
 
