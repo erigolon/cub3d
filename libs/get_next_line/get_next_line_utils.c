@@ -3,43 +3,44 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: erigolon <erigolon@student.42.fr>          +#+  +:+       +#+        */
+/*   By: erigolon <erigolon@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 14:27:26 by erigolon          #+#    #+#             */
-/*   Updated: 2023/02/02 20:28:48 by erigolon         ###   ########.fr       */
+/*   Updated: 2024/11/15 12:11:45 by erigolon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+#include "../libft/libft.h"
 
-void	*ft_calloc(size_t count, size_t size)
-{
-	void			*str;
-	size_t			i;
-	unsigned char	*s;
+// void	*ft_calloc(size_t count, size_t size)
+// {
+// 	void			*str;
+// 	size_t			i;
+// 	unsigned char	*s;
 
-	str = (void *)malloc(count * size);
-	if (!str)
-		return (0);
-	i = 0;
-	s = (unsigned char *)str;
-	while (i < (count * size))
-	{
-		s[i] = (unsigned char) 0;
-		i++;
-	}
-	return ((void *)s);
-}
+// 	str = (void *)malloc(count * size);
+// 	if (!str)
+// 		return (0);
+// 	i = 0;
+// 	s = (unsigned char *)str;
+// 	while (i < (count * size))
+// 	{
+// 		s[i] = (unsigned char) 0;
+// 		i++;
+// 	}
+// 	return ((void *)s);
+// }
 
-size_t	ft_strlen(const char *s)
-{
-	size_t	count;
+// size_t	ft_strlen(const char *s)
+// {
+// 	size_t	count;
 
-	count = 0;
-	while (s[count] != '\0')
-		count++;
-	return (count);
-}
+// 	count = 0;
+// 	while (s[count] != '\0')
+// 		count++;
+// 	return (count);
+// }
 
 char	*ft_strchr(const char *s, int c)
 {

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: agil-ord <agil-ord@student.42.fr>          +#+  +:+       +#+         #
+#    By: erigolon <erigolon@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/09 14:05:02 by erigolon          #+#    #+#              #
-#    Updated: 2024/04/01 13:04:46 by agil-ord         ###   ########.fr        #
+#    Updated: 2024/11/15 12:08:43 by erigolon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ OBJ = ${SRC:.c=.o}
 
 RM = rm -f
 
-CC = GCC
+CC = gcc
 
 CFLAGS = -Wall -Wextra -Werror -g
 

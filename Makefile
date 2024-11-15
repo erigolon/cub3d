@@ -10,7 +10,7 @@ LIBGN	= ./libs/get_next_line
 
 USER	= $(shell whoami)
 HEADERS	= -I ./includes -I ${LIBMLX}/include -I ${LIBFT} -I ${LIBGN}
-LIBGL	= -lglfw -L"/Users/$(USER)/.brew/opt/glfw/lib"
+LIBGL	= -lglfw -ldl -pthread -lm
 LIBS	= ${LIBGL} ${LIBMLX}/libmlx42.a ${LIBFT}/libft.a ${LIBGN}/get_next_line.a
 CFLAGS  = -Wall -Wextra -Werror -g
 
